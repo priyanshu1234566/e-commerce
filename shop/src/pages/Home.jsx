@@ -1,15 +1,18 @@
-import Navbar from "../components/Navbar";
+
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Banner from "../components/Banner";  
 import Footer from "../components/Footer";
 
 export default function Home() {
   return (
     <div className="bg-gray-50">
 
-      <Navbar />
+      
 
       <Header />
-
+      <Navbar />
+      <Banner />
       {/* Featured Section */}
       <section className="p-10">
         <h2 className="text-3xl font-bold text-center mb-8">
