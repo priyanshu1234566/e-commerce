@@ -1,0 +1,125 @@
+.deals-container {
+  min-height: 100vh;
+  padding: 40px;
+
+  background: radial-gradient(circle at top, #0f172a, #1e293b);
+  color: white;
+}
+
+/* TITLE */
+.deals-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.deal-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 12px;
+
+  margin-bottom: 30px;
+}
+
+.deal-form input,
+.deal-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.deal-form button {
+  grid-column: span 2;
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* GRID */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.deal-card {
+  background: rgba(255,255,255,0.06);
+  padding: 15px;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.deal-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* PRICE */
+.price-box {
+  margin: 10px 0;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #f87171;
+}
+
+.new {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.active-btn {
+  background: green;
+  color: white;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+}
+
+.inactive-btn {
+  background: red;
+  color: white;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .deals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deal-form {
+    grid-template-columns: 1fr;
+  }
+}

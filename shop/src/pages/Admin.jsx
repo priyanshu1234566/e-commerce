@@ -1,55 +1,71 @@
-import { useState } from "react";
+import { Routes, Route, NavLink } from "react-router-dom";
+
+import AddProduct from "../admin/AddProduct";
+import ManageProducts from "../admin/ManageProducts";
+import Deals from "../admin/Deals";
+import NewArrivals from "../admin/NewArrivals";
+
+import "../styles/Admin.css";
 
 export default function Admin() {
-  const [products, setProducts] = useState([]);
-
-  const addProduct = () => {
-    const newProduct = {
-      id: Date.now(),
-      name: "New Product",
-      price: 999
-    };
-
-    setProducts([...products, newProduct]);
-  };
-
-  const deleteProduct = (id) => {
-    setProducts(products.filter(p => p.id !== id));
-  };
-
   return (
-    <div className="p-10 bg-gray-50 min-h-screen">
+    <div className="admin-wrapper">
 
-      <h1 className="text-3xl font-bold mb-6 text-center">
-        ⚙️ Admin Panel
-      </h1>
+      {/* SIDEBAR */}
+      <aside className="admin-sidebar">
 
-      <button
-        onClick={addProduct}
-        className="bg-green-500 text-white px-4 py-2 rounded mb-6 hover:scale-105 transition"
-      >
-        + Add Product
-      </button>
+        <div className="admin-logo">
+          🛒 ShopAdmin
+        </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+        <nav className="admin-menu">
 
-        {products.map((p) => (
-          <div key={p.id}
-            className="bg-white p-4 rounded shadow hover:shadow-lg transition"
-          >
-            <h3 className="font-bold">{p.name}</h3>
-            <p>₹ {p.price}</p>
+          {/* 🔥 FIX: ABSOLUTE PATH (IMPORTANT) */}
+          <NavLink to="/admin/add-product" className={({ isActive }) => isActive ? "active" : ""}>
+            ➕ Add Product
+          </NavLink>
 
-            <button
-              onClick={() => deleteProduct(p.id)}
-              className="mt-3 bg-red-500 text-white px-3 py-1 rounded"
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+          <NavLink to="/admin/manage-products" className={({ isActive }) => isActive ? "active" : ""}>
+            📦 Manage Products
+          </NavLink>
 
-      </div>
+          <NavLink to="/admin/deals" className={({ isActive }) => isActive ? "active" : ""}>
+            🔥 Deals
+          </NavLink>
+
+          <NavLink to="/admin/new-arrivals" className={({ isActive }) => isActive ? "active" : ""}>
+            🆕 New Arrivals
+          </NavLink>
+
+        </nav>
+
+        <div className="admin-footer">
+          © 2026 ShopHub
+        </div>
+
+      </aside>
+
+      {/* MAIN CONTENT */}
+      <main className="admin-content">
+
+        <div className="admin-topbar">
+          <h1>Admin Dashboard</h1>
+          <p>Manage products, deals & arrivals</p>
+        </div>
+
+        <div className="admin-page">
+
+          {/* IMPORTANT: same relative routes here */}
+          <Routes>
+            <Route path="add-product" element={<AddProduct />} />
+            <Route path="manage-products" element={<ManageProducts />} />
+            <Route path="deals" element={<Deals />} />
+            <Route path="new-arrivals" element={<NewArrivals />} />
+          </Routes>
+
+        </div>
+
+      </main>
 
     </div>
   );
