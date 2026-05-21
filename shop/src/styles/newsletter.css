@@ -1,0 +1,34 @@
+.newsletter {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+  margin-top: 40px;
+}
+
+.newsletter-box {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-box input {
+  padding: 12px;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.newsletter-box button {
+  padding: 12px 20px;
+  border: none;
+  background: #111;
+  color: white;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.newsletter-box button:hover {
+  background: black;
+}
